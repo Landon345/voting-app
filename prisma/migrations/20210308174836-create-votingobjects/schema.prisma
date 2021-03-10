@@ -1,0 +1,28 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url = "***"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model votingobject {
+  
+  id String @id
+
+  label String
+
+  image String
+
+  rating Int
+
+  wins Int @default(0)
+
+  losses Int @default(0)
+
+  @@map(name: "votingobjects")
+}
