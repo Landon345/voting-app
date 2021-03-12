@@ -19,7 +19,6 @@ import {
   UpdateVotingobjectRatingMutation,
   UpdateVotingobjectRatingMutationVariables,
 } from "src/generated/UpdateVotingobjectRatingMutation";
-import { checkForResolveTypeResolver } from "graphql-tools";
 
 const VOTING_OBJECT_QUERY = gql`
   query VotingobjectQuery($id: String!) {
@@ -136,19 +135,25 @@ function Foods() {
     }
     if (!d1?.votingobject?.id) {
       const f1Id = f1.uri.split("#")[1];
-      await handlecreate(f1Id, f1.image, f1.label);
+      await handlecreate(f1Id, foods as any, f1.image, f1.label);
     }
     if (!d2?.votingobject?.id) {
       const f2Id = f2.uri.split("#")[1];
-      await handlecreate(f2Id, f2.image, f2.label);
+      await handlecreate(f2Id, foods as any, f2.image, f2.label);
     }
   };
 
-  const handlecreate = async (id: string, image: string, label: string) => {
+  const handlecreate = async (
+    id: string,
+    category: string,
+    image: string,
+    label: string
+  ) => {
     const { data } = await createVotingObject({
       variables: {
         input: {
           id,
+          category,
           image,
           label,
         },

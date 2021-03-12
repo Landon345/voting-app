@@ -10,9 +10,13 @@ generator client {
   provider = "prisma-client-js"
 }
 
+
+
 model votingobject {
-  
+
   id String @id
+
+  category String
 
   label String
 
@@ -26,3 +30,4 @@ model votingobject {
 
   @@map(name: "votingobjects")
 }
+

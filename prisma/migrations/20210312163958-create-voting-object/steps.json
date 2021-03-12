@@ -48,6 +48,13 @@
     {
       "tag": "CreateField",
       "model": "votingobject",
+      "field": "category",
+      "type": "String",
+      "arity": "Required"
+    },
+    {
+      "tag": "CreateField",
+      "model": "votingobject",
       "field": "label",
       "type": "String",
       "arity": "Required"

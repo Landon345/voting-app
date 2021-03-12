@@ -17,6 +17,9 @@ class VotingobjectSignature {
   id!: string;
 
   @Field((_type) => String)
+  category!: string;
+
+  @Field((_type) => String)
   label!: string;
 
   @Field((_type) => String)
@@ -38,6 +41,9 @@ class VotingobjectCreateInput {
   id!: string;
 
   @Field((_type) => String)
+  category!: string;
+
+  @Field((_type) => String)
   label!: string;
 
   @Field((_type) => String)
@@ -48,6 +54,9 @@ class VotingobjectCreateInput {
 class VotingobjectInput {
   @Field((_type) => String)
   id!: string;
+
+  @Field((_type) => String)
+  category!: string;
 
   @Field((_type) => String)
   label!: string;
@@ -83,10 +92,12 @@ export class VotingobjectResolver {
     if (inDataBaseAlready) {
       return inDataBaseAlready;
     }
+
     return await ctx.prisma.votingobject.create({
       data: {
         id: input.id,
         label: input.label,
+        category: input.category,
         image: input.image,
         rating: 1000,
       },

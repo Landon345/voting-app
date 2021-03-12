@@ -1,6 +1,6 @@
-# Migration `20210308174836-create-votingobjects`
+# Migration `20210312163958-create-voting-object`
 
-This migration has been generated at 3/8/2021, 11:48:36 AM.
+This migration has been generated at 3/12/2021, 10:39:58 AM.
 You can check out the [state of the schema](./schema.prisma) after the migration.
 
 ## Database Steps
@@ -8,6 +8,7 @@ You can check out the [state of the schema](./schema.prisma) after the migration
 ```sql
 CREATE TABLE "votingobjects" (
     "id" TEXT NOT NULL,
+    "category" TEXT NOT NULL,
     "label" TEXT NOT NULL,
     "image" TEXT NOT NULL,
     "rating" INTEGER NOT NULL,
@@ -22,10 +23,10 @@ CREATE TABLE "votingobjects" (
 
 ```diff
 diff --git schema.prisma schema.prisma
-migration ..20210308174836-create-votingobjects
+migration ..20210312163958-create-voting-object
 --- datamodel.dml
 +++ datamodel.dml
-@@ -1,0 +1,28 @@
+@@ -1,0 +1,33 @@
 +// This is your Prisma schema file,
 +// learn more about it in the docs: https://pris.ly/d/prisma-schema
 +
@@ -38,9 +39,13 @@ migration ..20210308174836-create-votingobjects
 +  provider = "prisma-client-js"
 +}
 +
++
++
 +model votingobject {
-+  
++
 +  id String @id
++
++  category String
 +
 +  label String
 +
@@ -54,6 +59,7 @@ migration ..20210308174836-create-votingobjects
 +
 +  @@map(name: "votingobjects")
 +}
++
 ```
 
 

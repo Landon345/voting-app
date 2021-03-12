@@ -8,6 +8,7 @@
 //==============================================================
 
 export interface VotingobjectCreateInput {
+  category: string;
   id: string;
   image: string;
   label: string;

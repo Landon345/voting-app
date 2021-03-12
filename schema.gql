@@ -14,12 +14,14 @@ type Query {
 }
 
 input VotingobjectCreateInput {
+  category: String!
   id: String!
   image: String!
   label: String!
 }
 
 type VotingobjectSignature {
+  category: String!
   id: String!
   image: String!
   label: String!
