@@ -11,6 +11,7 @@ type Mutation {
 type Query {
   hello: String!
   votingobject(id: String!): VotingobjectSignature
+  votingobjectsByCategory(category: String!): [VotingobjectSignature!]
 }
 
 input VotingobjectCreateInput {

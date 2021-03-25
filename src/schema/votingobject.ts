@@ -10,6 +10,7 @@ import {
   InputType,
 } from "type-graphql";
 import { Context } from "./context";
+import playerdata from "playerdata.json";
 
 @ObjectType()
 class VotingobjectSignature {
@@ -79,6 +80,14 @@ export class VotingobjectResolver {
   @Query((_returns) => VotingobjectSignature, { nullable: true })
   async votingobject(@Arg("id") id: string, @Ctx() ctx: Context) {
     return ctx.prisma.votingobject.findOne({ where: { id: id } });
+  }
+
+  @Query((_returns) => [VotingobjectSignature], { nullable: true })
+  async votingobjectsByCategory(
+    @Arg("category") category: string,
+    @Ctx() ctx: Context
+  ) {
+    return ctx.prisma.votingobject.findMany({ where: { category: category } });
   }
 
   @Mutation((_returns) => VotingobjectSignature)

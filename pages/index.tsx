@@ -13,10 +13,12 @@ export default function Home() {
             <div className="p-8 ml-6 bg-gradient-to-br from-purple-400 to-red-400 rounded-xl text-white">
               Best Programming Language
             </div>
-            <div className="p-8 ml-6 bg-gradient-to-br from-purple-400 to-red-400 rounded-xl text-white">
-              Best Basketball Player
-            </div>
-            <Link href={`/categories/tastiest-food`}>
+            <Link href={`/basketball-categories`}>
+              <div className="p-8 ml-6 bg-gradient-to-br from-purple-400 to-red-400 rounded-xl text-white">
+                Best Basketball Player
+              </div>
+            </Link>
+            <Link href={`/categories`}>
               <div className="p-8 ml-6 bg-gradient-to-br from-purple-400 to-red-400 rounded-xl text-white">
                 Tastiest Food
               </div>
