@@ -4,6 +4,11 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Layout from "src/components/layout";
 import { valueToObjectRepresentation } from "@apollo/client/utilities";
+import {
+  VOTING_OBJECT_QUERY,
+  CREATE_VOTINGOBJECT_MUTATION,
+  UPDATE_VOTINGOBJECT_RATING_MUTATION,
+} from "src/components/mutations";
 
 import {
   VotingobjectQuery,
@@ -19,36 +24,6 @@ import {
   UpdateVotingobjectRatingMutation,
   UpdateVotingobjectRatingMutationVariables,
 } from "src/generated/UpdateVotingobjectRatingMutation";
-
-const VOTING_OBJECT_QUERY = gql`
-  query VotingobjectQuery($id: String!) {
-    votingobject(id: $id) {
-      id
-      rating
-    }
-  }
-`;
-
-const CREATE_VOTINGOBJECT_MUTATION = gql`
-  mutation CreateVotingobjectMutation($input: VotingobjectCreateInput!) {
-    createVotingobject(input: $input) {
-      id
-    }
-  }
-`;
-
-const UPDATE_VOTINGOBJECT_RATING_MUTATION = gql`
-  mutation UpdateVotingobjectRatingMutation(
-    $votewinner: String!
-    $voteloser: String!
-  ) {
-    updateVotingobjectRating(votewinner: $votewinner, voteloser: $voteloser) {
-      id
-      label
-      rating
-    }
-  }
-`;
 
 function Foods() {
   const {
